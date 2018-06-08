@@ -1,0 +1,24 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "./gradlew.bat build --warning-mode=all",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build native image",
+            "type": "shell",
+            "command": "native-image -jar ./build/libs/native-image-helloworld-0.1.0-all.jar -H:Name=native-image-helloworld-0.1.0 -H:+JNI",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
